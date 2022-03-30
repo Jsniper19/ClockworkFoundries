@@ -10,6 +10,10 @@ public class PlayerController : MonoBehaviour
     public int currentInitiative;
     public bool isPresent;
     public float timeMeter;
+
+    public float TileX;
+    public float TileY;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,5 +25,25 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void MoveUp()
+    {
+        gameObject.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + TileY);
+    }
+
+    void MoveDown()
+    {
+        gameObject.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - TileY);
+    }
+
+    void MoveLeft()
+    {
+        gameObject.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - TileX);
+    }
+
+    void MoveRight()
+    {
+        gameObject.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + TileX);
     }
 }
