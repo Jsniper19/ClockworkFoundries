@@ -20,9 +20,11 @@ public class PlayerController_Combat : MonoBehaviour
         currentInitiative = maxInitiative;
     }
 
-    // Update is called once per frame
-    void Update()
+    void TestFunction()
     {
-        
+        int initiativeCost = 1;
+        currentInitiative -= initiativeCost;
+
+        Debug.Log("Selection Successful");
     }
 }
