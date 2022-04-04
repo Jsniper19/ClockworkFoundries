@@ -10,6 +10,7 @@ public class PlayerController_Combat : MonoBehaviour
     public int currentInitiative;
     public bool isPresent;
     public float timeMeter;
+    public bool isSelected;
 
 
 
