@@ -12,6 +12,9 @@ public class OverworldInteraction : MonoBehaviour
     public Button InteractButton;
     public Button CancelButton;
     public PlayerController_Overworld PCO;
+    public GameObject ActiveItem;
+    public GameObject InactiveItem;
+    public bool Active;
 
     private void Start()
     {
@@ -42,13 +45,24 @@ public class OverworldInteraction : MonoBehaviour
     {
         if (isEngage)
         {
-            InteractText.text = "Engage";
             SceneManager.LoadScene("Combat");
         }
         else
         {
-            InteractText.text = "Interact";
-            Debug.Log("Something should be happening");
+            if (!Active)
+            {
+                Debug.Log("Something should be happening");
+                InactiveItem.SetActive(false);
+                ActiveItem.SetActive(true);
+                Active = true;
+            }
+            else
+            {
+                Debug.Log("Something should be happening");
+                InactiveItem.SetActive(true);
+                ActiveItem.SetActive(false);
+                Active = false;
+            }
         }
     }
 
