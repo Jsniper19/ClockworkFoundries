@@ -10,7 +10,7 @@ public class InventoryManager : MonoBehaviour
     public List<Item> itemList = new List<Item>();
 
     // todo 
-    // implement pick up function,
+    // add item display to GUI
 
    public struct Item {
         // Using a simple defense/attack style stat system to test, also using an int system for item types where say 0 is a weapon, 1 is a headpiece etc.
@@ -34,12 +34,6 @@ public class InventoryManager : MonoBehaviour
         // lets vars be accesible to get and set when creating new item
         public override string ToString() => $"({itemType}, {attackStat}, {defenseStat}, {itemName}, {indexPos}, {isEquipped})";
     }
-
-
-    void Start()
-    {
-
-    }
     
     void Update()
     {
@@ -56,7 +50,7 @@ public class InventoryManager : MonoBehaviour
         else panel.gameObject.SetActive(false);
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+  /*  private void OnTriggerEnter2D(Collider2D col)
     {
         // check if player has hit item and take its stats, delete other item
         if (col.gameObject.CompareTag("Item"))
@@ -66,14 +60,16 @@ public class InventoryManager : MonoBehaviour
             {
                 PickUpItem(a.itemtype, a.attackstat, a.defensestat, a.itemname);
             }
+
+            Destroy(col.gameObject, 1f);
         }
-    }
+    } */
 
     void PickUpItem(int itemtype, int attackstat, int defensestat, string itemname)
     {
-        // index counter,
+        // index counter, adds picked up item to player,
         int i = 0;
-        itemList.Add(new Item(itemtype, attackstat, defensestat, itemname, i, false) { itemName = itemname });
+        itemList.Add(new Item(itemtype, attackstat, defensestat, itemname, i, false));
         print(itemList[i]);
         i++;
     }
