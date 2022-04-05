@@ -9,6 +9,21 @@ public class EnemyController : MonoBehaviour
     public GameObject PlayerCharacter;
     public GridManager GM;
 
+    public ColliderActivation CloseRange;
+    public ColliderActivation MediumRange;
+
+    public int Ammo;
+
+    public float DamageLong;
+    public string TypeLong;
+    public float AccuracyLong;
+    public float CritLong;
+
+    public float DamageClose;
+    public string TypeClose;
+    public float AccuracyClose;
+    public float CritClose;
+
 
     // Start is called before the first frame update
     void Start()
@@ -19,15 +34,48 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (CloseRange.InRange)
+        {
+            if (Ammo > 0)
+            {
+                Move(false);
+            }
+            else
+            {
+                Attack();
+            }
+        }
+        else
+        {
+            if (Ammo > 0)
+            {
+                if (MediumRange.InRange)
+                {
+                    Attack();
+                }
+                else
+                {
+                    Move(true);
+                }
+            }
+        }
     }
 
+
+    //Hamish complete this to get the enemy to attack
     void Attack()
     {
+        if (Ammo < 0)
+        {
 
+        }
+        else
+        {
+
+        }
     }
 
-    void Move()
+    void Move(bool forward)
     {
         var RelPosX = transform.position.x - PlayerCharacter.transform.position.x;
         var RelPosY = transform.position.y - PlayerCharacter.transform.position.y;
