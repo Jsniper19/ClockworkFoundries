@@ -1,9 +1,13 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemsDrafting : MonoBehaviour
 {
+    public bool canAttack;
+    public int ammo;
+
     public class Weapon
     {
         public string name { get; set; }
@@ -24,6 +28,7 @@ public class ItemsDrafting : MonoBehaviour
         }
     }
 
+
     public List<Weapon> weapons = new List<Weapon>();
 
     void Awake()
@@ -43,8 +48,48 @@ public class ItemsDrafting : MonoBehaviour
         // switch for active weapons, then pass stats into dmg stats 
     }
 
-    void Attack()
+    // need to understand what will determine the weapon the enemy has and replace weapons[i]
+    void Attack(Weapon weapon)
     {
+        if (!weapon.ranged)// && CloseRange.InRange) to be uncommented when script ported over
+        {
+            canAttack = true;
+        }
+        else if (weapon.ranged)// && CloseRange.InRange)
+        {
+            canAttack = false;
+            // swap weapon
+        }
+        else if (!weapon.ranged)// && MediumRange.InRange) 
+        {
+            canAttack = false;
+        }
+        else if (weapon.ranged)// && MediumRange.InRange)
+        {
+            canAttack = true;
+        }
 
+        if (!canAttack)
+        {
+            // swap weapon
+        }
+
+        // generate random number to determine if it hits
+        System.Random rnd = new System.Random();
+        if (rnd.Next(0, 100) <= weapon.accuracy)
+        {
+            // check for crit 
+            if (rnd.Next(0, 100) <= weapon.critChance)
+            {
+            //    PlayerController_Combat.maxHealth -= weapon.dmg;
+            }
+            float dmgtotake = rnd.Next(0, 100) <= weapon.critChance ? weapon.dmg * 2 : weapon.dmg;
+
+
+        }
+        else
+        {
+            // misses, play miss animation
+        }
     }
 }
