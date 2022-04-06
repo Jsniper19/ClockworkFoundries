@@ -444,7 +444,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canAttack: 0
   equippedRanged: Steam Cannon
-  EquippedMelee: 
+  EquippedMelee: Poison Spear
 --- !u!1 &1317134158
 GameObject:
   m_ObjectHideFlags: 0
