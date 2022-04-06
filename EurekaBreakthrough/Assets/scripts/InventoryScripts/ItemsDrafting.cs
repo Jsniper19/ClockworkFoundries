@@ -6,7 +6,8 @@ using UnityEngine;
 public class ItemsDrafting : MonoBehaviour
 {
     public bool canAttack;
-    public int ammo;
+    public string equippedRanged, EquippedMelee;
+    Weapon ranged, melee;
 
     public class Weapon
     {
@@ -41,11 +42,17 @@ public class ItemsDrafting : MonoBehaviour
         weapons.Add(new Weapon("Boom Stick", true, 70f, 50f, "piercing", 15f));
         weapons.Add(new Weapon("Hunting Boomerang", true, 90f, 40f, "bashing", 20f));
         weapons.Add(new Weapon("Rifle", true, 75f, 45f, "piercing", 15f));
+
+        foreach (var Weapon in weapons)
+        {
+            ranged = weapons.Find( Weapon.name == equippedRanged);
+            print(ranged);
+        }
     }
 
     void Update()
     {
-        // switch for active weapons, then pass stats into dmg stats 
+
     }
 
     // need to understand what will determine the weapon the enemy has and replace weapons[i]
@@ -78,14 +85,8 @@ public class ItemsDrafting : MonoBehaviour
         System.Random rnd = new System.Random();
         if (rnd.Next(0, 100) <= weapon.accuracy)
         {
-            // check for crit 
-            if (rnd.Next(0, 100) <= weapon.critChance)
-            {
-            //    PlayerController_Combat.maxHealth -= weapon.dmg;
-            }
             float dmgtotake = rnd.Next(0, 100) <= weapon.critChance ? weapon.dmg * 2 : weapon.dmg;
-
-
+           // PlayerController_Combat.maxHealth -= dmgtotake; need maxhealth to be a static var
         }
         else
         {
