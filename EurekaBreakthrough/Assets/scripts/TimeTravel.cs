@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class TimeTravel : MonoBehaviour
 {
-    public int PlayerStartX;
-    public int PlayerStartY;
-    public int Enemy1StartX;
-    public int Enemy1StartY;
-    public int Enemy2StartX;
-    public int Enemy2StartY;
-    public int Enemy3StartX;
-    public int Enemy3StartY;
+    public float PlayerStartX;
+    public float PlayerStartY;
+    public float Enemy1StartX;
+    public float Enemy1StartY;
+    public float Enemy2StartX;
+    public float Enemy2StartY;
+    public float Enemy3StartX;
+    public float Enemy3StartY;
 
     public GameObject PlayerCombat;
     public GameObject Enemy1;

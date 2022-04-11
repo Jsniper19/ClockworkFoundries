@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public GameObject Enemy2;
     public GameObject Enemy3;
 
-    void EndTurn()
+    public void EndTurn()
     {
         if (PresentPlayer.currentInitiative < FuturePlayer.currentInitiative)
         {
@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
         {
             EnemyInitiative = 10 - FuturePlayer.currentInitiative;
         }
+        turnIsPlayers = false;
     }
 
     private void Update()
@@ -52,8 +53,8 @@ public class GameManager : MonoBehaviour
             else
             {
                 turnIsPlayers = true;
-                PresentPlayer.Reset();
-                FuturePlayer.Reset();
+                PresentPlayer.NewTurn();
+                FuturePlayer.NewTurn();
             }
         }
     }

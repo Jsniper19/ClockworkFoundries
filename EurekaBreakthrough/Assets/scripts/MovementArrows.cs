@@ -21,7 +21,10 @@ public class MovementArrows : MonoBehaviour
     public Vector2 TargetPoint;
     public PlayerController_Combat PCC;
 
-
+    private void Start()
+    {
+        TargetPoint = transform.position;
+    }
     // Update is called once per frame
     void Update()
     {

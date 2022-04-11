@@ -28,4 +28,10 @@ public class PlayerController_Combat : MonoBehaviour
 
         Debug.Log("Selection Successful");
     }
+
+    public void NewTurn()
+    {
+        currentInitiative = maxInitiative;
+        timeMeter += 1;
+    }
 }
