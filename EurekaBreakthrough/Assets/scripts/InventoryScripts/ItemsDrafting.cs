@@ -99,7 +99,6 @@ public class ItemsDrafting : MonoBehaviour
         }*/
     }
 
-
     void Attack(Weapon weapon)
     {
         // generate random number to determine if it hits

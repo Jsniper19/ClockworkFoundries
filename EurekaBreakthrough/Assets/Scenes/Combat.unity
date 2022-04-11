@@ -233,6 +233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 145032978}
   - component: {fileID: 145032979}
+  - component: {fileID: 145032980}
   m_Layer: 0
   m_Name: CloseRange
   m_TagString: Untagged
@@ -291,6 +292,20 @@ PolygonCollider2D:
       - {x: 1.6, y: -1.6}
       - {x: 4.8, y: -1.6}
       - {x: 4.8, y: 1.6}
+--- !u!114 &145032980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145032977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353fed7464d1e2a41bc191ef68e581c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InRange: 0
+  CanMove: 0
 --- !u!1 &194540857
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,7 +320,7 @@ GameObject:
   - component: {fileID: 194540861}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -418,7 +433,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
-  currentHealth: 0
   maxInitiative: 10
   currentInitiative: 0
   isPresent: 1
@@ -937,6 +951,7 @@ GameObject:
   m_Component:
   - component: {fileID: 668978950}
   - component: {fileID: 668978951}
+  - component: {fileID: 668978952}
   m_Layer: 0
   m_Name: CloseRange
   m_TagString: Untagged
@@ -995,6 +1010,20 @@ PolygonCollider2D:
       - {x: 1.6, y: -1.6}
       - {x: 4.8, y: -1.6}
       - {x: 4.8, y: 1.6}
+--- !u!114 &668978952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668978949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353fed7464d1e2a41bc191ef68e581c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InRange: 0
+  CanMove: 0
 --- !u!1 &817937803
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,6 +1034,7 @@ GameObject:
   m_Component:
   - component: {fileID: 817937804}
   - component: {fileID: 817937805}
+  - component: {fileID: 817937806}
   m_Layer: 0
   m_Name: CloseRange
   m_TagString: Untagged
@@ -1036,7 +1066,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1063,6 +1093,20 @@ PolygonCollider2D:
       - {x: 1.6, y: -1.6}
       - {x: 4.8, y: -1.6}
       - {x: 4.8, y: 1.6}
+--- !u!114 &817937806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817937803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353fed7464d1e2a41bc191ef68e581c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InRange: 0
+  CanMove: 0
 --- !u!1 &828859001
 GameObject:
   m_ObjectHideFlags: 0
@@ -1073,6 +1117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 828859002}
   - component: {fileID: 828859003}
+  - component: {fileID: 828859004}
   m_Layer: 0
   m_Name: LongRange
   m_TagString: Untagged
@@ -1139,6 +1184,20 @@ PolygonCollider2D:
       - {x: 4.8, y: 4.8}
       - {x: 1.6, y: 4.8}
       - {x: 1.6, y: 8.4}
+--- !u!114 &828859004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828859001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353fed7464d1e2a41bc191ef68e581c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InRange: 0
+  CanMove: 0
 --- !u!1 &887583272
 GameObject:
   m_ObjectHideFlags: 0
@@ -1149,6 +1208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 887583273}
   - component: {fileID: 887583274}
+  - component: {fileID: 887583275}
   m_Layer: 0
   m_Name: LongRange
   m_TagString: Untagged
@@ -1180,7 +1240,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1215,6 +1275,20 @@ PolygonCollider2D:
       - {x: 4.8, y: 4.8}
       - {x: 1.6, y: 4.8}
       - {x: 1.6, y: 8.4}
+--- !u!114 &887583275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887583272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353fed7464d1e2a41bc191ef68e581c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InRange: 1
+  CanMove: 0
 --- !u!1 &954679726
 GameObject:
   m_ObjectHideFlags: 0
@@ -1225,6 +1299,7 @@ GameObject:
   m_Component:
   - component: {fileID: 954679728}
   - component: {fileID: 954679727}
+  - component: {fileID: 954679729}
   m_Layer: 0
   m_Name: RedCoat
   m_TagString: Untagged
@@ -1299,6 +1374,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &954679729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954679726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0f2865e0db258843b6502d6d3a5eb02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  PlayerCharacter: {fileID: 194540857}
+  GM: {fileID: 358361917}
+  CloseRange: {fileID: 817937806}
+  MediumRange: {fileID: 887583275}
+  Ammo: 5
+  poisonDamageMod: 0
+  equippedRanged: Rifle
+  equippedMelee: Sword
 --- !u!1 &1163486425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1749,6 +1846,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1514925973}
   - component: {fileID: 1514925974}
+  - component: {fileID: 1514925975}
   m_Layer: 0
   m_Name: LongRange
   m_TagString: Untagged
@@ -1815,6 +1913,20 @@ PolygonCollider2D:
       - {x: 4.8, y: 4.8}
       - {x: 1.6, y: 4.8}
       - {x: 1.6, y: 8.4}
+--- !u!114 &1514925975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514925972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353fed7464d1e2a41bc191ef68e581c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InRange: 0
+  CanMove: 0
 --- !u!1 &1595525024
 GameObject:
   m_ObjectHideFlags: 0
@@ -1825,6 +1937,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1595525026}
   - component: {fileID: 1595525025}
+  - component: {fileID: 1595525027}
   m_Layer: 0
   m_Name: RedCoat (1)
   m_TagString: Untagged
@@ -1899,6 +2012,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1595525027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595525024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0f2865e0db258843b6502d6d3a5eb02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  PlayerCharacter: {fileID: 194540857}
+  GM: {fileID: 358361917}
+  CloseRange: {fileID: 0}
+  MediumRange: {fileID: 0}
+  Ammo: 5
+  poisonDamageMod: 0
+  equippedRanged: Rifle
+  equippedMelee: Sword
 --- !u!1 &1611623430
 GameObject:
   m_ObjectHideFlags: 0
@@ -2274,6 +2409,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1842685077}
   - component: {fileID: 1842685076}
+  - component: {fileID: 1842685078}
   m_Layer: 0
   m_Name: RedCoat (2)
   m_TagString: Untagged
@@ -2348,6 +2484,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1842685078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842685075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0f2865e0db258843b6502d6d3a5eb02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  PlayerCharacter: {fileID: 194540857}
+  GM: {fileID: 358361917}
+  CloseRange: {fileID: 668978952}
+  MediumRange: {fileID: 828859004}
+  Ammo: 5
+  poisonDamageMod: 0
+  equippedRanged: Rifle
+  equippedMelee: Sword
 --- !u!1 &1930942181
 GameObject:
   m_ObjectHideFlags: 0

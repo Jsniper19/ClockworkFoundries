@@ -49,16 +49,14 @@ public class EnemyController : MonoBehaviour
     public List<Weapon> weapons = new List<Weapon>(){
         new Weapon("WarClub", false, 80f, 50f, "bashing", 15f),
         new Weapon("Sword", false, 85f, 32f, "slashing", 20f),
-        new Weapon("PoisonSpear", false, 85f, 25f, "piercing", 10f),
         new Weapon("SteamCannon", true, 80f, 60f, "piercing", 5f),
         new Weapon("BoomStick", true, 70f, 50f, "piercing", 15f),
-        new Weapon("HuntingBoomerang", true, 90f, 40f, "bashing", 20f),
         new Weapon("Rifle", true, 75f, 45f, "piercing", 15f)
     };
     #endregion
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         currentHealth = maxHealth;
 
@@ -77,7 +75,7 @@ public class EnemyController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void DecideAction()
     {
         if (CloseRange.InRange)
         {
@@ -106,7 +104,6 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-
     void Attack(Weapon weapon)
     {
         // generate random number to determine if it hits
@@ -117,16 +114,7 @@ public class EnemyController : MonoBehaviour
             PlayerController_Combat.currentHealth -= dmgToTake;   
             print(dmgToTake);
 
-            // checking to deal poison damage
-            if (weapons[melee].name == "Poison Spear")
-            {
-                /* count turns, will add this when we have turn order finished
-                if (turnCount >= 3)
-                {
-                    PlayerController_Combat.maxHealth -= weapons[melee].dmg * poisonDamageMod;
-                }
-                 */
-            }
+            if (weapon.ranged == true) Ammo -= 1;
         }
         else
         {
