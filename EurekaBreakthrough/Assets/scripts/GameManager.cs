@@ -5,15 +5,56 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public bool turnIsPlayers;
-    // Start is called before the first frame update
-    void Start()
+    public int EnemyInitiative;
+    public int EnemyCount;
+
+    public PlayerController_Combat PresentPlayer;
+    public PlayerController_Combat FuturePlayer;
+
+    public GameObject Enemy1;
+    public GameObject Enemy2;
+    public GameObject Enemy3;
+
+    void EndTurn()
     {
-        
+        if (PresentPlayer.currentInitiative < FuturePlayer.currentInitiative)
+        {
+            EnemyInitiative = 10 - PresentPlayer.currentInitiative;
+        }
+        else
+        {
+            EnemyInitiative = 10 - FuturePlayer.currentInitiative;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (!turnIsPlayers)
+        {
+            if (EnemyInitiative > 0)
+            {
+                if (EnemyCount == 1)
+                {
+                    Enemy1.GetComponent<EnemyController>().DecideAction();
+                    EnemyCount = 2;
+                }
+                else if (EnemyCount == 2)
+                {
+                    Enemy2.GetComponent<EnemyController>().DecideAction();
+                    EnemyCount = 3;
+                }
+                else if (EnemyCount == 3)
+                {
+                    Enemy3.GetComponent<EnemyController>().DecideAction();
+                    EnemyCount = 1;
+                }
+            }
+            else
+            {
+                turnIsPlayers = true;
+                PresentPlayer.Reset();
+                FuturePlayer.Reset();
+            }
+        }
     }
 }
