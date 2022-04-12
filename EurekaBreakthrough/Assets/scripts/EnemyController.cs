@@ -55,7 +55,6 @@ public class EnemyController : MonoBehaviour
     };
     #endregion
 
-    // Start is called before the first frame update
     void Awake()
     {
         currentHealth = maxHealth;
@@ -74,7 +73,6 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     public void DecideAction()
     {
         if (CloseRange.InRange)
@@ -112,7 +110,7 @@ public class EnemyController : MonoBehaviour
         {
             float dmgToTake = rnd.Next(0, 100) <= weapon.critChance ? weapon.dmg * 2 : weapon.dmg; // need to change this to include defense stats too
             PlayerController_Combat.currentHealth -= dmgToTake;   
-            print(dmgToTake);
+            print("Damage: " + dmgToTake + " GameObject: " + this.gameObject.name);
 
             if (weapon.ranged == true) Ammo -= 1;
         }
@@ -120,6 +118,7 @@ public class EnemyController : MonoBehaviour
         {
             // misses, play miss animation
         }
+        //GM.EnemyInitiative -= 1;
     }
 
     void Move(bool forward)

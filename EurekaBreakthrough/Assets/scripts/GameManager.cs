@@ -38,16 +38,19 @@ public class GameManager : MonoBehaviour
                 {
                     Enemy1.GetComponent<EnemyController>().DecideAction();
                     EnemyCount = 2;
+                    EnemyInitiative--;
                 }
                 else if (EnemyCount == 2)
                 {
                     Enemy2.GetComponent<EnemyController>().DecideAction();
                     EnemyCount = 3;
+                    EnemyInitiative--;
                 }
                 else if (EnemyCount == 3)
                 {
                     Enemy3.GetComponent<EnemyController>().DecideAction();
                     EnemyCount = 1;
+                    EnemyInitiative--;
                 }
             }
             else

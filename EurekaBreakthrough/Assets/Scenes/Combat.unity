@@ -799,7 +799,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &337904332
 Transform:
   m_ObjectHideFlags: 0
@@ -1031,7 +1031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnIsPlayers: 1
-  EnemyInitiative: 0
+  EnemyInitiative: 1
   EnemyCount: 1
   PresentPlayer: {fileID: 194540861}
   FuturePlayer: {fileID: 582849597}
@@ -2961,8 +2961,8 @@ MonoBehaviour:
   currentHealth: 0
   PlayerCharacter: {fileID: 194540857}
   GM: {fileID: 358361917}
-  CloseRange: {fileID: 0}
-  MediumRange: {fileID: 0}
+  CloseRange: {fileID: 668978952}
+  MediumRange: {fileID: 828859004}
   Ammo: 5
   poisonDamageMod: 0
   equippedRanged: Rifle
