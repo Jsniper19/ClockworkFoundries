@@ -8,15 +8,11 @@ public class MovementArrows : MonoBehaviour
     public bool MoveEnabled;
     public GridManager GM;
 
-    public Button Up;
-    public Button Down;
-    public Button Left;
-    public Button Right;
-
     public GameObject up;
     public GameObject down;
     public GameObject left;
     public GameObject right;
+    public GameObject Arrows;
     public float tileSpeed;
     public Vector2 TargetPoint;
     public PlayerController_Combat PCC;
@@ -28,25 +24,30 @@ public class MovementArrows : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (MoveEnabled)
+        if (PCC.isSelected)
         {
-            Up.enabled = true;
-            Down.enabled = true;
-            Left.enabled = true;
-            Right.enabled = true;
-        }
-        else
-        {
-            Up.enabled = false;
-            Down.enabled = false;
-            Left.enabled = false;
-            Right.enabled = false;
-        }
-        transform.position = Vector2.MoveTowards(transform.position, TargetPoint, Time.deltaTime * tileSpeed);
+            if (MoveEnabled)
+            {
+                up.SetActive(true);
+                down.SetActive(true);
+                left.SetActive(true);
+                down.SetActive(true);
+                Arrows.SetActive(true);
+            }
+            else
+            {
+                up.SetActive(false);
+                down.SetActive(false);
+                left.SetActive(false);
+                down.SetActive(false);
+                Arrows.SetActive(false);
+            }
+            transform.position = Vector2.MoveTowards(transform.position, TargetPoint, Time.deltaTime * tileSpeed);
 
-        if (PCC.currentInitiative == 0)
-        {
-            MoveEnabled = false;
+            if (PCC.currentInitiative <= 0)
+            {
+                MoveEnabled = false;
+            }
         }
     }
 
