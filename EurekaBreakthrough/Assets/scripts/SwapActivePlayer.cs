@@ -11,14 +11,15 @@ public class SwapActivePlayer : MonoBehaviour
 
     public bool present;
 
-    void SwapPlayer()
+    public void SwapPlayer()
     {
-        if (present)
+        if (!present)
         {
             CameraPresent.SetActive(true);
             CameraFuture.SetActive(false);
             PCCPresent.isSelected = true;
             PCCFuture.isSelected = false;
+            present = true;
         }
         else
         {
@@ -26,6 +27,7 @@ public class SwapActivePlayer : MonoBehaviour
             CameraPresent.SetActive(false);
             PCCPresent.isSelected = false;
             PCCFuture.isSelected = true;
+            present = false;
         }
     }
 }

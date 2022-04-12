@@ -24,30 +24,28 @@ public class MovementArrows : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PCC.isSelected)
+        
+        if (MoveEnabled && PCC.isSelected)
         {
-            if (MoveEnabled)
-            {
-                up.SetActive(true);
-                down.SetActive(true);
-                left.SetActive(true);
-                down.SetActive(true);
-                Arrows.SetActive(true);
-            }
-            else
-            {
-                up.SetActive(false);
-                down.SetActive(false);
-                left.SetActive(false);
-                down.SetActive(false);
-                Arrows.SetActive(false);
-            }
-            transform.position = Vector2.MoveTowards(transform.position, TargetPoint, Time.deltaTime * tileSpeed);
+            up.SetActive(true);
+            down.SetActive(true);
+            left.SetActive(true);
+            down.SetActive(true);
+            Arrows.SetActive(true);
+        }
+        else
+        {
+            up.SetActive(false);
+            down.SetActive(false);
+            left.SetActive(false);
+            down.SetActive(false);
+            Arrows.SetActive(false);
+        }
+        transform.position = Vector2.MoveTowards(transform.position, TargetPoint, Time.deltaTime * tileSpeed);
 
-            if (PCC.currentInitiative <= 0)
-            {
-                MoveEnabled = false;
-            }
+        if (PCC.currentInitiative <= 0)
+        {
+            MoveEnabled = false;
         }
     }
 
