@@ -11,6 +11,8 @@ public class EnemyController : MonoBehaviour
 
     public ColliderActivation CloseRange;
     public ColliderActivation MediumRange;
+    float RelPosX;
+    float RelPosY;
 
     public int Ammo;
 
@@ -72,6 +74,11 @@ public class EnemyController : MonoBehaviour
             }
         }
     }
+    private void Update()
+    {
+        RelPosX = PlayerCharacter.transform.position.x - transform.position.x;
+        RelPosY = PlayerCharacter.transform.position.y - transform.position.y;
+    }
 
     public void DecideAction()
     {
@@ -123,24 +130,26 @@ public class EnemyController : MonoBehaviour
 
     void Move(bool forward)
     {
-        var RelPosX = transform.position.x - PlayerCharacter.transform.position.x;
-        var RelPosY = transform.position.y - PlayerCharacter.transform.position.y;
         if (forward)
         {
             if (RelPosX > -RelPosY || RelPosX < RelPosY)
             {
+                //up
                 transform.position = new Vector2(transform.position.x, transform.position.y + GM.TileY);
             }
             else if (RelPosX > RelPosY || RelPosX < -RelPosY)
             {
+                //down
                 transform.position = new Vector2(transform.position.x, transform.position.y - GM.TileY);
             }
             else if (RelPosX > -RelPosY || RelPosX > RelPosY)
             {
+                //right
                 transform.position = new Vector2(transform.position.x + GM.TileX, transform.position.y);
             }
             else if (RelPosX < RelPosY || RelPosX < -RelPosY)
             {
+                //left
                 transform.position = new Vector2(transform.position.x - GM.TileX, transform.position.y);
             }
         }
@@ -148,18 +157,22 @@ public class EnemyController : MonoBehaviour
         {
             if (RelPosX > -RelPosY || RelPosX < RelPosY)
             {
+                //up
                 transform.position = new Vector2(transform.position.x, transform.position.y - GM.TileY);
             }
             else if (RelPosX > RelPosY || RelPosX < -RelPosY)
             {
+                //down
                 transform.position = new Vector2(transform.position.x, transform.position.y + GM.TileY);
             }
             else if (RelPosX > -RelPosY || RelPosX > RelPosY)
             {
+                //right
                 transform.position = new Vector2(transform.position.x - GM.TileX, transform.position.y);
             }
             else if (RelPosX < RelPosY || RelPosX < -RelPosY)
             {
+                //left
                 transform.position = new Vector2(transform.position.x + GM.TileX, transform.position.y);
             }
         }
