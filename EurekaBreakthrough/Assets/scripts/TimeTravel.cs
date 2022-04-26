@@ -18,6 +18,9 @@ public class TimeTravel : MonoBehaviour
     public GameObject Enemy2;
     public GameObject Enemy3;
     public GameObject PlayerFuture;
+    public GameObject Enemy1Future;
+    public GameObject Enemy2Future;
+    public GameObject Enemy3Future;
 
     public void Travel()
     {
@@ -26,5 +29,17 @@ public class TimeTravel : MonoBehaviour
         var EnemyTwo = Instantiate(Enemy2, new Vector2(Enemy2StartX, Enemy2StartY), Quaternion.identity);
         var EnemyThree = Instantiate(Enemy3, new Vector2(Enemy3StartX, Enemy3StartY), Quaternion.identity);
         PlayerFuture.GetComponent<PlayerController_Combat>().isPresent = false;
+        if (Enemy1Future.activeInHierarchy)
+        {
+            Enemy1Future.SetActive(false);
+        }
+        if (Enemy2Future.activeInHierarchy)
+        {
+            Enemy2Future.SetActive(false);
+        }
+        if (Enemy3Future.activeInHierarchy)
+        {
+            Enemy3Future.SetActive(false);
+        }
     }
 }
