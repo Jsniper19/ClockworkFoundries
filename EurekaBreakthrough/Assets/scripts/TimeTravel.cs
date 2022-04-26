@@ -22,7 +22,7 @@ public class TimeTravel : MonoBehaviour
     public GameObject Enemy2Future;
     public GameObject Enemy3Future;
 
-    void Travel()
+    public void Travel()
     {
         var PlayerPresent = Instantiate(PlayerCombat, new Vector2(PlayerStartX, PlayerStartY), Quaternion.identity);
         var EnemyOne = Instantiate(Enemy1, new Vector2(Enemy1StartX, Enemy1StartY), Quaternion.identity);
