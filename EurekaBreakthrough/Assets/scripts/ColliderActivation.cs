@@ -6,6 +6,8 @@ public class ColliderActivation : MonoBehaviour
 {
     public bool InRange;
     public bool CanMove;
+    public bool Target;
+    public GameObject TargetEnemy;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,6 +18,11 @@ public class ColliderActivation : MonoBehaviour
         if (collision.CompareTag("Barrier"))
         {
             CanMove = false;
+        }
+        if (collision.CompareTag("Enemy"))
+        {
+            Target = true;
+            TargetEnemy = collision.gameObject;
         }
     }
 
@@ -29,6 +36,11 @@ public class ColliderActivation : MonoBehaviour
         {
             CanMove = false;
         }
+        if (collision.CompareTag("Enemy"))
+        {
+            Target = true;
+            TargetEnemy = collision.gameObject;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -40,6 +52,11 @@ public class ColliderActivation : MonoBehaviour
         if (collision.CompareTag("Barrier"))
         {
             CanMove = true;
+        }
+        if (collision.CompareTag("Enemy"))
+        {
+            Target = false;
+            TargetEnemy = null;
         }
     }
 }

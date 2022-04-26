@@ -11,6 +11,7 @@ public class PlayerController_Combat : MonoBehaviour
     public bool isPresent;
     public float timeMeter;
     public bool isSelected;
+    public ColliderActivation CA;
 
 
 
@@ -33,5 +34,10 @@ public class PlayerController_Combat : MonoBehaviour
     {
         currentInitiative = maxInitiative;
         timeMeter += 1;
+    }
+
+    private void Update()
+    {
+        
     }
 }
