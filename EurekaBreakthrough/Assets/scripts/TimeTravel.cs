@@ -22,6 +22,10 @@ public class TimeTravel : MonoBehaviour
     public GameObject Enemy2Future;
     public GameObject Enemy3Future;
 
+    public SwapActivePlayer SAP;
+    public GameManager GM;
+    public MovementArrows MA;
+
     public void Travel()
     {
         var PlayerPresent = Instantiate(PlayerCombat, new Vector2(PlayerStartX, PlayerStartY), Quaternion.identity);
@@ -41,5 +45,16 @@ public class TimeTravel : MonoBehaviour
         {
             Enemy3Future.SetActive(false);
         }
+
+        GM.FuturePlayer = GM.PresentPlayer;
+        GM.PresentPlayer = PlayerPresent.GetComponent<PlayerController_Combat>();
+
+        SAP.PCCFuture = SAP.PCCPresent;
+        SAP.PCCPresent = PlayerPresent.GetComponent<PlayerController_Combat>();
+        SAP.CameraFuture = SAP.CameraPresent;
+        SAP.CameraPresent = PlayerPresent.GetComponentInChildren(typeof(Camera)).GetComponent<Camera>();
+        MA.Future = MA.Present;
+        MA.Present = PlayerPresent.GetComponent<PlayerController_Combat>();
+
     }
 }

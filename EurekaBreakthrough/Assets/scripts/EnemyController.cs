@@ -60,6 +60,8 @@ public class EnemyController : MonoBehaviour
     void Awake()
     {
         currentHealth = maxHealth;
+        GM = GameObject.FindGameObjectWithTag("GameController").GetComponent<GridManager>();
+        PlayerCharacter = GameObject.FindGameObjectWithTag("Player");
 
         // find equipped weapon
         for (int i = 0; i < weapons.Count; i++)
@@ -73,11 +75,16 @@ public class EnemyController : MonoBehaviour
                 melee = i;
             }
         }
+
     }
     private void Update()
     {
         RelPosX = PlayerCharacter.transform.position.x - transform.position.x;
         RelPosY = PlayerCharacter.transform.position.y - transform.position.y;
+        if (PlayerCharacter == null)
+        {
+            PlayerCharacter = GameObject.FindGameObjectWithTag("Player");
+        }
     }
 
     public void DecideAction()

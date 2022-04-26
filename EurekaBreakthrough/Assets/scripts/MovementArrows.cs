@@ -15,33 +15,19 @@ public class MovementArrows : MonoBehaviour
     public GameObject Arrows;
     public float tileSpeed;
     public Vector2 TargetPoint;
+    public PlayerController_Combat Future;
+    public PlayerController_Combat Present;
     public PlayerController_Combat PCC;
 
     private void Start()
     {
-        TargetPoint = transform.position;
+        TargetPoint = PCC.gameObject.transform.position;
+        PCC = Present;
     }
     // Update is called once per frame
     void Update()
     {
-        
-        if (MoveEnabled && PCC.isSelected)
-        {
-            up.SetActive(true);
-            down.SetActive(true);
-            left.SetActive(true);
-            down.SetActive(true);
-            Arrows.SetActive(true);
-        }
-        else
-        {
-            up.SetActive(false);
-            down.SetActive(false);
-            left.SetActive(false);
-            down.SetActive(false);
-            Arrows.SetActive(false);
-        }
-        transform.position = Vector2.MoveTowards(transform.position, TargetPoint, Time.deltaTime * tileSpeed);
+        PCC.gameObject.transform.position = Vector2.MoveTowards(PCC.gameObject.transform.position, TargetPoint, Time.deltaTime * tileSpeed);
 
         if (PCC.currentInitiative <= 0)
         {
@@ -51,22 +37,22 @@ public class MovementArrows : MonoBehaviour
 
     public void MoveUp()
     {
-        TargetPoint = new Vector2 (transform.position.x, transform.position.y + GM.TileY);
+        TargetPoint = new Vector2 (PCC.gameObject.transform.position.x, PCC.gameObject.transform.position.y + GM.TileY);
         PCC.currentInitiative -= 1;
     }
     public void MoveDown()
     {
-        TargetPoint = new Vector2(transform.position.x, transform.position.y - GM.TileY);
+        TargetPoint = new Vector2(PCC.gameObject.transform.position.x, PCC.gameObject.transform.position.y - GM.TileY);
         PCC.currentInitiative -= 1;
     }
     public void MoveLeft()
     {
-        TargetPoint = new Vector2(transform.position.x - GM.TileX, transform.position.y);
+        TargetPoint = new Vector2(PCC.gameObject.transform.position.x - GM.TileX, PCC.gameObject.transform.position.y);
         PCC.currentInitiative -= 1;
     }
     public void MoveRight()
     {
-        TargetPoint = new Vector2(transform.position.x + GM.TileX, transform.position.y);
+        TargetPoint = new Vector2(PCC.gameObject.transform.position.x + GM.TileX, PCC.gameObject.transform.position.y);
         PCC.currentInitiative -= 1;
     }
 }

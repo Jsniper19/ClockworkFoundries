@@ -17,13 +17,20 @@ public class GameManager : MonoBehaviour
 
     public void EndTurn()
     {
-        if (PresentPlayer.currentInitiative < FuturePlayer.currentInitiative)
+        if (FuturePlayer != null)
         {
-            EnemyInitiative = 10 - PresentPlayer.currentInitiative;
+            if (PresentPlayer.currentInitiative < FuturePlayer.currentInitiative)
+            {
+                EnemyInitiative = 10 - PresentPlayer.currentInitiative;
+            }
+            else
+            {
+                EnemyInitiative = 10 - FuturePlayer.currentInitiative;
+            }
         }
         else
         {
-            EnemyInitiative = 10 - FuturePlayer.currentInitiative;
+            EnemyInitiative = 10 - PresentPlayer.currentInitiative;
         }
         turnIsPlayers = false;
     }
@@ -57,7 +64,10 @@ public class GameManager : MonoBehaviour
             {
                 turnIsPlayers = true;
                 PresentPlayer.NewTurn();
-                FuturePlayer.NewTurn();
+                if (FuturePlayer != null)
+                {
+                    FuturePlayer.NewTurn();
+                }
             }
         }
     }
