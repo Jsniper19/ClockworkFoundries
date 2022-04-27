@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController_Combat : MonoBehaviour
 {
@@ -15,6 +16,11 @@ public class PlayerController_Combat : MonoBehaviour
 
     public string equippedWeapon;
     public Weapon _weapon;
+
+    public ColliderActivation closeRange;
+    public ColliderActivation longRange;
+
+    public Slider hpSlider;
 
     public class Weapon
     {
@@ -65,12 +71,29 @@ public class PlayerController_Combat : MonoBehaviour
                 }
             }
 
-            System.Random rnd = new System.Random();
-            if (rnd.Next(0, 100) <= _weapon.accuracy)
+            if (_weapon.ranged == true && longRange.InRange)
             {
-                float dmgToTake = rnd.Next(0, 100) <= _weapon.critChance ? _weapon.dmg * 2 : _weapon.dmg;
+                TakeDamage(_weapon);
+            }
+            else if (_weapon.ranged == false && closeRange.InRange)
+            {
+                TakeDamage(_weapon);
+            }
+            else if (_weapon.ranged == true && closeRange.InRange)
+            {
+                TakeDamage(_weapon);
             }
         }
+    }
+
+    void TakeDamage(Weapon weapon)
+    {
+        System.Random rnd = new System.Random();
+        if (rnd.Next(0, 100) <= _weapon.accuracy)
+        {
+            float dmgToTake = rnd.Next(0, 100) <= _weapon.critChance ? _weapon.dmg * 2 : _weapon.dmg;
+        }
+        
     }
 
     void TestFunction()
@@ -89,6 +112,6 @@ public class PlayerController_Combat : MonoBehaviour
 
     private void Update()
     {
-        
+        hpSlider.value = currentHealth;
     }
 }

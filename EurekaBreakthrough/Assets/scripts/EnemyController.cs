@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     public float currentHealth;
     public GameObject PlayerCharacter;
     public GridManager GM;
+    public GameManager GameManager;
 
     public ColliderActivation CloseRange;
     public ColliderActivation MediumRange;
@@ -132,7 +133,7 @@ public class EnemyController : MonoBehaviour
         {
             // misses, play miss animation
         }
-        //GM.EnemyInitiative -= 1;
+        GameManager.EnemyInitiative -= 1;
     }
 
     void Move(bool forward)
