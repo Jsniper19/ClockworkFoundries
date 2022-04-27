@@ -96,6 +96,10 @@ public class PlayerController_Combat : MonoBehaviour
             dmgToTake = rnd.Next(0, 100) <= _weapon.critChance ? _weapon.dmg * 2 : _weapon.dmg;
             Debug.Log("hit");
         }
+        
+        Text dmgText = Instantiate(textPrefab, CA.TargetEnemy.GetComponentInChildren<Canvas>().transform);
+        dmgText.text = dmgToTake.ToString();
+        Destroy(dmgText, 1.5f);
 
         CA.TargetEnemy.GetComponent<EnemyController>().currentHealth -= dmgToTake;
         Debug.Log("attacking");
@@ -125,6 +129,6 @@ public class PlayerController_Combat : MonoBehaviour
                 Debug.Log("attack");
                 currentInitiative -= 1;
             }
-        }
+        }        
     }
 }
