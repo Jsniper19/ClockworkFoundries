@@ -7720,6 +7720,7 @@ MonoBehaviour:
   CloseRange: {fileID: 668978952}
   MediumRange: {fileID: 828859004}
   Ammo: 5
+  deadEnemy: {fileID: 5099943945731523118, guid: 782b8693215e7634fbc48210af893453, type: 3}
   poisonDamageMod: 0
   equippedRanged: Rifle
   equippedMelee: Sword
@@ -8243,6 +8244,7 @@ MonoBehaviour:
   CloseRange: {fileID: 668978952}
   MediumRange: {fileID: 828859004}
   Ammo: 5
+  deadEnemy: {fileID: 5099943945731523118, guid: 782b8693215e7634fbc48210af893453, type: 3}
   poisonDamageMod: 0
   equippedRanged: Rifle
   equippedMelee: Sword
@@ -8597,6 +8599,10 @@ PrefabInstance:
       propertyPath: GM
       value: 
       objectReference: {fileID: 358361917}
+    - target: {fileID: 674771856177567571, guid: cf75907bd7c1e704cbb9ef5d80253dc3, type: 3}
+      propertyPath: deadEnemy
+      value: 
+      objectReference: {fileID: 5099943945731523118, guid: 782b8693215e7634fbc48210af893453, type: 3}
     - target: {fileID: 674771856177567571, guid: cf75907bd7c1e704cbb9ef5d80253dc3, type: 3}
       propertyPath: PlayerCharacter
       value: 

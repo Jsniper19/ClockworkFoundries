@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour
     float RelPosY;
 
     public int Ammo;
+    public GameObject deadEnemy;
 
     public float poisonDamageMod;
     [Header("Enter Weapon names with capital letters and NO spaces, IE WarClub")]
@@ -85,6 +86,12 @@ public class EnemyController : MonoBehaviour
         if (PlayerCharacter == null)
         {
             PlayerCharacter = GameObject.FindGameObjectWithTag("Player");
+        }
+
+        if (currentHealth <= 0)
+        {
+            Instantiate(deadEnemy, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
+            Destroy(this.gameObject);
         }
     }
 
