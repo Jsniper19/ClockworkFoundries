@@ -71,15 +71,15 @@ public class PlayerController_Combat : MonoBehaviour
                 }
             }
 
-            if (_weapon.ranged == true && longRange.InRange)
+            if (_weapon.ranged == true && longRange.Target)
             {
                 TakeDamage(_weapon);
             }
-            else if (_weapon.ranged == false && closeRange.InRange)
+            else if (_weapon.ranged == false && closeRange.Target)
             {
                 TakeDamage(_weapon);
             }
-            else if (_weapon.ranged == true && closeRange.InRange)
+            else if (_weapon.ranged == true && closeRange.Target)
             {
                 TakeDamage(_weapon);
             }
@@ -92,9 +92,11 @@ public class PlayerController_Combat : MonoBehaviour
         if (rnd.Next(0, 100) <= _weapon.accuracy)
         {
             dmgToTake = rnd.Next(0, 100) <= _weapon.critChance ? _weapon.dmg * 2 : _weapon.dmg;
+            Debug.Log("hit");
         }
 
         CA.TargetEnemy.GetComponent<EnemyController>().currentHealth -= dmgToTake;
+        Debug.Log("attacking");
     }
 
     void TestFunction()
@@ -115,7 +117,12 @@ public class PlayerController_Combat : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Attack();
+            if (CA.TargetEnemy != null)
+            {
+                Attack();
+                Debug.Log("attack");
+                currentInitiative -= 1;
+            }
         }
     }
 }

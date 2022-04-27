@@ -318,10 +318,11 @@ MonoBehaviour:
   isPresent: 1
   timeMeter: 0
   isSelected: 1
-  CA: {fileID: 0}
+  CA: {fileID: 867690836}
   equippedWeapon: Rifle
-  closeRange: {fileID: 0}
-  longRange: {fileID: 0}
+  closeRange: {fileID: 668978952}
+  longRange: {fileID: 828859004}
+  dmgToTake: 0
 --- !u!50 &194540862
 Rigidbody2D:
   serializedVersion: 4
@@ -1536,7 +1537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f281b403a84b8764e87e12a915443ec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveEnabled: 0
+  MoveEnabled: 1
   GM: {fileID: 358361917}
   up: {fileID: 1663903125}
   down: {fileID: 317479186}
