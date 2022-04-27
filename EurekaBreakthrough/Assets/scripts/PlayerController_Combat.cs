@@ -22,7 +22,6 @@ public class PlayerController_Combat : MonoBehaviour
 
     public float dmgToTake;
     public Text textPrefab;
-    public Canvas canvasPrefab;
 
     public class Weapon
     {
@@ -48,11 +47,11 @@ public class PlayerController_Combat : MonoBehaviour
     }
 
     public List<Weapon> weapons = new List<Weapon>(){
-        new Weapon("WarClub", false, 80f, 50f, "bashing", 15f),
-        new Weapon("Sword", false, 85f, 32f, "slashing", 20f),
-        new Weapon("SteamCannon", true, 80f, 60f, "piercing", 5f),
-        new Weapon("BoomStick", true, 70f, 50f, "piercing", 15f),
-        new Weapon("Rifle", true, 75f, 45f, "piercing", 15f)
+        new Weapon("WarClub", false, 80f, 20f, "bashing", 15f),
+        new Weapon("Sword", false, 85f, 16f, "slashing", 20f),
+        new Weapon("SteamCannon", true, 80f, 25f, "piercing", 5f),
+        new Weapon("BoomStick", true, 70f, 18f, "piercing", 15f),
+        new Weapon("Rifle", true, 75f, 20f, "piercing", 15f)
     };
 
     void Start()
