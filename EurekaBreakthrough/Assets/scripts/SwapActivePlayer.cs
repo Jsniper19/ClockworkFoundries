@@ -23,6 +23,7 @@ public class SwapActivePlayer : MonoBehaviour
             PCCFuture.isSelected = false;
             MA.PCC = MA.Present;
             UIM.Set = UIM.Present;
+            MA.ResetTarget();
             present = true;
         }
         else
@@ -33,6 +34,7 @@ public class SwapActivePlayer : MonoBehaviour
             PCCFuture.isSelected = true;
             MA.PCC = MA.Future;
             UIM.Set = UIM.Future;
+            MA.ResetTarget();
             present = false;
         }
     }

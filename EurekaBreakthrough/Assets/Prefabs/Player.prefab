@@ -283,7 +283,6 @@ MonoBehaviour:
   longRange: {fileID: 0}
   dmgToTake: 0
   textPrefab: {fileID: 0}
-  canvasPrefab: {fileID: 0}
 --- !u!61 &3604764656892589696
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -330,7 +329,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &3604764657159059244
 GameObject:
   m_ObjectHideFlags: 0

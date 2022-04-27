@@ -64,4 +64,9 @@ public class MovementArrows : MonoBehaviour
         TargetPoint = new Vector2(PCC.gameObject.transform.position.x + GM.TileX, PCC.gameObject.transform.position.y);
         PCC.currentInitiative -= 1;
     }
+
+    public void ResetTarget()
+    {
+        TargetPoint = PCC.gameObject.transform.position;
+    }
 }
