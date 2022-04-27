@@ -33,6 +33,15 @@ public class MovementArrows : MonoBehaviour
         {
             MoveEnabled = false;
         }
+
+        if (MoveEnabled)
+        {
+            Arrows.SetActive(true);
+        }
+        else
+        {
+            Arrows.SetActive(false);
+        }
     }
 
     public void MoveUp()

@@ -20,7 +20,7 @@ public class PlayerController_Combat : MonoBehaviour
     public ColliderActivation closeRange;
     public ColliderActivation longRange;
 
-    public Slider hpSlider;
+    public float dmgToTake;
 
     public class Weapon
     {
@@ -91,9 +91,10 @@ public class PlayerController_Combat : MonoBehaviour
         System.Random rnd = new System.Random();
         if (rnd.Next(0, 100) <= _weapon.accuracy)
         {
-            float dmgToTake = rnd.Next(0, 100) <= _weapon.critChance ? _weapon.dmg * 2 : _weapon.dmg;
+            dmgToTake = rnd.Next(0, 100) <= _weapon.critChance ? _weapon.dmg * 2 : _weapon.dmg;
         }
-        
+
+        CA.TargetEnemy.GetComponent<EnemyController>().currentHealth -= dmgToTake;
     }
 
     void TestFunction()
@@ -112,6 +113,9 @@ public class PlayerController_Combat : MonoBehaviour
 
     private void Update()
     {
-        hpSlider.value = currentHealth;
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Attack();
+        }
     }
 }
