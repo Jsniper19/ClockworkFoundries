@@ -295,6 +295,7 @@ Transform:
   - {fileID: 637168292}
   - {fileID: 1724072003}
   - {fileID: 1224292150}
+  - {fileID: 806850419}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -318,7 +319,9 @@ MonoBehaviour:
   timeMeter: 0
   isSelected: 1
   CA: {fileID: 0}
-  equippedWeapon: 
+  equippedWeapon: Rifle
+  closeRange: {fileID: 0}
+  longRange: {fileID: 0}
 --- !u!50 &194540862
 Rigidbody2D:
   serializedVersion: 4
@@ -923,11 +926,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 668978949}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
-  m_Father: {fileID: 1595525026}
+  m_Father: {fileID: 806850419}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &668978951
@@ -983,6 +986,38 @@ MonoBehaviour:
   CanMove: 0
   Target: 0
   TargetEnemy: {fileID: 0}
+--- !u!1 &806850418
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 806850419}
+  m_Layer: 0
+  m_Name: Colliders
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &806850419
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806850418}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 668978950}
+  - {fileID: 828859002}
+  m_Father: {fileID: 194540859}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &828859001
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,11 +1043,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 828859001}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
-  m_Father: {fileID: 1595525026}
+  m_Father: {fileID: 806850419}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &828859003
@@ -1935,9 +1970,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.4, y: 3.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 668978950}
-  - {fileID: 828859002}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1957,6 +1990,7 @@ MonoBehaviour:
   currentHealth: 0
   PlayerCharacter: {fileID: 194540857}
   GM: {fileID: 358361917}
+  GameManager: {fileID: 0}
   CloseRange: {fileID: 668978952}
   MediumRange: {fileID: 828859004}
   Ammo: 5
@@ -2478,6 +2512,7 @@ MonoBehaviour:
   currentHealth: 0
   PlayerCharacter: {fileID: 194540857}
   GM: {fileID: 358361917}
+  GameManager: {fileID: 0}
   CloseRange: {fileID: 668978952}
   MediumRange: {fileID: 828859004}
   Ammo: 5
