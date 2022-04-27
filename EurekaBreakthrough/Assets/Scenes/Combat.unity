@@ -311,12 +311,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  currentHealth: 0
   maxInitiative: 10
   currentInitiative: 0
   isPresent: 1
   timeMeter: 0
   isSelected: 1
   CA: {fileID: 0}
+  equippedWeapon: 
 --- !u!50 &194540862
 Rigidbody2D:
   serializedVersion: 4
@@ -628,7 +630,8 @@ MonoBehaviour:
   Enemy3Future: {fileID: 1842685075}
   SAP: {fileID: 1257621595}
   GM: {fileID: 358361918}
-  MA: {fileID: 0}
+  MA: {fileID: 1257621594}
+  UIM: {fileID: 1257621596}
 --- !u!4 &358361916
 Transform:
   m_ObjectHideFlags: 0
@@ -1430,6 +1433,7 @@ GameObject:
   - component: {fileID: 1257621591}
   - component: {fileID: 1257621595}
   - component: {fileID: 1257621594}
+  - component: {fileID: 1257621596}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1526,7 +1530,25 @@ MonoBehaviour:
   PCCPresent: {fileID: 194540861}
   PCCFuture: {fileID: 0}
   MA: {fileID: 1257621594}
+  UIM: {fileID: 1257621596}
   present: 1
+--- !u!114 &1257621596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257621590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d03273ce2d3ac734a8859355954fc0b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: {fileID: 8914517908374062664}
+  Initiative: {fileID: 8914517908460106101}
+  Future: {fileID: 194540861}
+  Present: {fileID: 194540861}
+  Set: {fileID: 194540861}
 --- !u!1 &1350880138
 GameObject:
   m_ObjectHideFlags: 0

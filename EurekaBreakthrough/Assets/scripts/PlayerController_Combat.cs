@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController_Combat : MonoBehaviour
 {
     public float maxHealth;
-    public static float currentHealth; // need health to be static to be accessed to by enemy attack script
+    public float currentHealth; // need health to be static to be accessed to by enemy attack script
     public int maxInitiative;
     public int currentInitiative;
     public bool isPresent;
@@ -18,7 +18,7 @@ public class PlayerController_Combat : MonoBehaviour
 
     public class Weapon
     {
-        // weapon vars, can add the gameobject itself later ?? Maybe add ammou type here to make counting ammo of diff types easier
+        // weapon vars, can add the gameobject itself later ?? Maybe add ammo type here to make counting ammo of diff types easier
         public string name { get; set; }
         public bool ranged { get; set; }
         public float accuracy { get; set; }

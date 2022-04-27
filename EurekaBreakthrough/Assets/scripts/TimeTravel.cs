@@ -25,6 +25,7 @@ public class TimeTravel : MonoBehaviour
     public SwapActivePlayer SAP;
     public GameManager GM;
     public MovementArrows MA;
+    public UIManagement UIM;
 
     public void Travel()
     {
@@ -55,6 +56,8 @@ public class TimeTravel : MonoBehaviour
         SAP.CameraPresent = PlayerPresent.GetComponentInChildren(typeof(Camera)).GetComponent<Camera>();
         MA.Future = MA.Present;
         MA.Present = PlayerPresent.GetComponent<PlayerController_Combat>();
+        UIM.Future = UIM.Present;
+        UIM.Present = PlayerPresent.GetComponent<PlayerController_Combat>();
 
     }
 }

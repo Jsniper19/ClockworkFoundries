@@ -123,7 +123,7 @@ public class EnemyController : MonoBehaviour
         if (rnd.Next(0, 100) <= weapon.accuracy)
         {
             float dmgToTake = rnd.Next(0, 100) <= weapon.critChance ? weapon.dmg * 2 : weapon.dmg; // need to change this to include defense stats too
-            PlayerController_Combat.currentHealth -= dmgToTake;   
+            PlayerCharacter.GetComponent<PlayerController_Combat>().currentHealth -= dmgToTake;   
             print("Damage: " + dmgToTake + " GameObject: " + this.gameObject.name);
 
             if (weapon.ranged == true) Ammo -= 1;
