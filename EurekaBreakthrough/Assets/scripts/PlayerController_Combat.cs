@@ -21,6 +21,8 @@ public class PlayerController_Combat : MonoBehaviour
     public ColliderActivation longRange;
 
     public float dmgToTake;
+    public Text textPrefab;
+    public Canvas canvasPrefab;
 
     public class Weapon
     {
