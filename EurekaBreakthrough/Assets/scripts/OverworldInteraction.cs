@@ -64,6 +64,7 @@ public class OverworldInteraction : MonoBehaviour
                 Active = false;
             }
         }
+        InteractPanel.SetActive(false);
     }
 
     public void CancelInteract()
