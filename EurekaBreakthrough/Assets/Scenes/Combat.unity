@@ -10146,7 +10146,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'In:'
+  m_Text: 'IN:'
 --- !u!224 &8914517907201887512
 RectTransform:
   m_ObjectHideFlags: 0
