@@ -8,10 +8,10 @@ public class MovementArrows : MonoBehaviour
     public bool MoveEnabled;
     public GridManager GM;
 
-    public GameObject up;
-    public GameObject down;
-    public GameObject left;
-    public GameObject right;
+    public CollisionCheck up;
+    public CollisionCheck down;
+    public CollisionCheck left;
+    public CollisionCheck right;
     public GameObject Arrows;
     public float tileSpeed;
     public Vector2 TargetPoint;
@@ -46,23 +46,35 @@ public class MovementArrows : MonoBehaviour
 
     public void MoveUp()
     {
+        if (up.active)
+        {
         TargetPoint = new Vector2 (PCC.gameObject.transform.position.x, PCC.gameObject.transform.position.y + GM.TileY);
         PCC.currentInitiative -= 1;
+        }
     }
     public void MoveDown()
     {
-        TargetPoint = new Vector2(PCC.gameObject.transform.position.x, PCC.gameObject.transform.position.y - GM.TileY);
-        PCC.currentInitiative -= 1;
+        if (down.active)
+        {
+            TargetPoint = new Vector2(PCC.gameObject.transform.position.x, PCC.gameObject.transform.position.y - GM.TileY);
+            PCC.currentInitiative -= 1;
+        }
     }
     public void MoveLeft()
     {
-        TargetPoint = new Vector2(PCC.gameObject.transform.position.x - GM.TileX, PCC.gameObject.transform.position.y);
-        PCC.currentInitiative -= 1;
+        if (left.active)
+        {
+            TargetPoint = new Vector2(PCC.gameObject.transform.position.x - GM.TileX, PCC.gameObject.transform.position.y);
+            PCC.currentInitiative -= 1;
+        }
     }
     public void MoveRight()
     {
-        TargetPoint = new Vector2(PCC.gameObject.transform.position.x + GM.TileX, PCC.gameObject.transform.position.y);
-        PCC.currentInitiative -= 1;
+        if (right.active)
+        {
+            TargetPoint = new Vector2(PCC.gameObject.transform.position.x + GM.TileX, PCC.gameObject.transform.position.y);
+            PCC.currentInitiative -= 1;
+        }
     }
 
     public void ResetTarget()

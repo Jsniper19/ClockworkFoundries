@@ -128,6 +128,9 @@ public class PlayerController_Combat : MonoBehaviour
                 Debug.Log("attack");
                 currentInitiative -= 1;
             }
-        }        
+        }
+        
+
+
     }
 }
