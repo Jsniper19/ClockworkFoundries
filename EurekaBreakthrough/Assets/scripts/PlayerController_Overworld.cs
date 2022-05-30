@@ -18,22 +18,10 @@ public class PlayerController_Overworld : MonoBehaviour
     public Vector2 TargetPoint;
     public bool PLAY = true;
 
-    /*void Update()
+    private void Start()
     {
-        if (PLAY)
-        {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                TargetPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                TargetPoint.x = TargetPoint.x / 3.2f;
-                TargetPoint.x = Mathf.Round(TargetPoint.x) * 3.2f;
-                TargetPoint.y = TargetPoint.y / 3.2f;
-                TargetPoint.y = Mathf.Round(TargetPoint.y) * 3.2f;
-            }
-
-            transform.position = Vector2.MoveTowards(transform.position, TargetPoint, Time.deltaTime * tileSpeed);
-        }
-    }*/
+        TargetPoint = transform.position;
+    }
 
     private void Update()
     {
