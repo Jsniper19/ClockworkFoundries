@@ -4,23 +4,18 @@ using UnityEngine;
 
 public class TimeTravel : MonoBehaviour
 {
-    public float PlayerStartX;
-    public float PlayerStartY;
-    public float Enemy1StartX;
-    public float Enemy1StartY;
-    public float Enemy2StartX;
-    public float Enemy2StartY;
-    public float Enemy3StartX;
-    public float Enemy3StartY;
+    public Vector3 PlayerStart;
+    public Vector3 Enemy1Start;
+    public Vector3 Enemy2Start;
+    public Vector3 Enemy3Start;
 
-    public GameObject PlayerCombat;
+    public GameObject PlayerPrefab;
     public GameObject Enemy1;
     public GameObject Enemy2;
     public GameObject Enemy3;
+    public GameObject PlayerPresent;
     public GameObject PlayerFuture;
-    public GameObject Enemy1Future;
-    public GameObject Enemy2Future;
-    public GameObject Enemy3Future;
+    public GameObject EnemyPrefab;
 
     public SwapActivePlayer SAP;
     public GameManager GM;
@@ -29,35 +24,45 @@ public class TimeTravel : MonoBehaviour
 
     public void Travel()
     {
-        var PlayerPresent = Instantiate(PlayerCombat, new Vector2(PlayerStartX, PlayerStartY), Quaternion.identity);
-        var EnemyOne = Instantiate(Enemy1, new Vector2(Enemy1StartX, Enemy1StartY), Quaternion.identity);
-        var EnemyTwo = Instantiate(Enemy2, new Vector2(Enemy2StartX, Enemy2StartY), Quaternion.identity);
-        var EnemyThree = Instantiate(Enemy3, new Vector2(Enemy3StartX, Enemy3StartY), Quaternion.identity);
-        PlayerFuture.GetComponent<PlayerController_Combat>().isPresent = false;
-        if (Enemy1Future.activeInHierarchy)
+        if (PlayerPresent.transform.position != PlayerStart && PlayerPresent.transform.position != Enemy1Start && PlayerPresent.transform.position != Enemy2Start && PlayerPresent.transform.position != Enemy3Start)
         {
-            Enemy1Future.SetActive(false);
-        }
-        if (Enemy2Future.activeInHierarchy)
-        {
-            Enemy2Future.SetActive(false);
-        }
-        if (Enemy3Future.activeInHierarchy)
-        {
-            Enemy3Future.SetActive(false);
-        }
+            if (Enemy1 != null)
+            {
+                Destroy(Enemy1);
+            }
+            if (Enemy2 != null)
+            {
+                Destroy(Enemy2);
+            }
+            if (Enemy3 != null)
+            {
+                Destroy(Enemy3);
+            }
+            if (PlayerFuture != null)
+            {
+                Destroy(PlayerFuture);
+            }
+            PlayerFuture = PlayerPresent;
+            PlayerPresent = Instantiate(PlayerPrefab, PlayerStart, Quaternion.identity);
+            Enemy1 = Instantiate(EnemyPrefab, Enemy1Start, Quaternion.identity);
+            Enemy2 = Instantiate(EnemyPrefab, Enemy2Start, Quaternion.identity);
+            Enemy3 = Instantiate(EnemyPrefab, Enemy3Start, Quaternion.identity);
+            PlayerFuture.GetComponent<PlayerController_Combat>().isPresent = false;
 
-        GM.FuturePlayer = GM.PresentPlayer;
-        GM.PresentPlayer = PlayerPresent.GetComponent<PlayerController_Combat>();
+            GM.FuturePlayer = GM.PresentPlayer;
+            GM.PresentPlayer = PlayerPresent.GetComponent<PlayerController_Combat>();
 
-        SAP.PCCFuture = SAP.PCCPresent;
-        SAP.PCCPresent = PlayerPresent.GetComponent<PlayerController_Combat>();
-        SAP.CameraFuture = SAP.CameraPresent;
-        SAP.CameraPresent = PlayerPresent.GetComponentInChildren(typeof(Camera)).GetComponent<Camera>();
-        MA.Future = MA.Present;
-        MA.Present = PlayerPresent.GetComponent<PlayerController_Combat>();
-        UIM.Future = UIM.Present;
-        UIM.Present = PlayerPresent.GetComponent<PlayerController_Combat>();
+            SAP.PCCFuture = SAP.PCCPresent;
+            SAP.PCCPresent = PlayerPresent.GetComponent<PlayerController_Combat>();
+            SAP.CameraFuture = SAP.CameraPresent;
+            SAP.CameraPresent = PlayerPresent.GetComponentInChildren(typeof(Camera)).gameObject;
+            SAP.CameraPresent.SetActive(false);
 
+            MA.Future = MA.Present;
+            MA.Present = PlayerPresent.GetComponent<PlayerController_Combat>();
+
+            UIM.Future = UIM.Present;
+            UIM.Present = PlayerPresent.GetComponent<PlayerController_Combat>();
+        }
     }
 }

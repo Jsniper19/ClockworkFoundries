@@ -81,13 +81,13 @@ public class EnemyController : MonoBehaviour
     }
     private void Update()
     {
-        RelPosX = PlayerCharacter.transform.position.x - transform.position.x;
-        RelPosY = PlayerCharacter.transform.position.y - transform.position.y;
+        
         if (PlayerCharacter == null)
         {
             PlayerCharacter = GameObject.FindGameObjectWithTag("Player");
         }
-
+        RelPosX = PlayerCharacter.transform.position.x - transform.position.x;
+        RelPosY = PlayerCharacter.transform.position.y - transform.position.y;
         if (currentHealth <= 0)
         {
             Instantiate(deadEnemy, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerController_Overworld : MonoBehaviour
 {
-    public int TileX = 1;
-    public int TileY = 1;
+    public float TileX = 1;
+    public float TileY = 1;
 
 
     public float tileSpeed;

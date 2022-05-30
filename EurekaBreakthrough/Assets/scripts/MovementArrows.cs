@@ -8,10 +8,6 @@ public class MovementArrows : MonoBehaviour
     public bool MoveEnabled;
     public GridManager GM;
 
-    public CollisionCheck up;
-    public CollisionCheck down;
-    public CollisionCheck left;
-    public CollisionCheck right;
     public GameObject Arrows;
     public float tileSpeed;
     public Vector2 TargetPoint;
@@ -33,6 +29,10 @@ public class MovementArrows : MonoBehaviour
         {
             MoveEnabled = false;
         }
+        else
+        {
+            MoveEnabled = true;
+        }
 
         if (MoveEnabled)
         {
@@ -46,15 +46,15 @@ public class MovementArrows : MonoBehaviour
 
     public void MoveUp()
     {
-        if (up.active)
+        if (PCC.up.active)
         {
-        TargetPoint = new Vector2 (PCC.gameObject.transform.position.x, PCC.gameObject.transform.position.y + GM.TileY);
-        PCC.currentInitiative -= 1;
+            TargetPoint = new Vector2 (PCC.gameObject.transform.position.x, PCC.gameObject.transform.position.y + GM.TileY);
+            PCC.currentInitiative -= 1;
         }
     }
     public void MoveDown()
     {
-        if (down.active)
+        if (PCC.down.active)
         {
             TargetPoint = new Vector2(PCC.gameObject.transform.position.x, PCC.gameObject.transform.position.y - GM.TileY);
             PCC.currentInitiative -= 1;
@@ -62,7 +62,7 @@ public class MovementArrows : MonoBehaviour
     }
     public void MoveLeft()
     {
-        if (left.active)
+        if (PCC.left.active)
         {
             TargetPoint = new Vector2(PCC.gameObject.transform.position.x - GM.TileX, PCC.gameObject.transform.position.y);
             PCC.currentInitiative -= 1;
@@ -70,7 +70,7 @@ public class MovementArrows : MonoBehaviour
     }
     public void MoveRight()
     {
-        if (right.active)
+        if (PCC.right.active)
         {
             TargetPoint = new Vector2(PCC.gameObject.transform.position.x + GM.TileX, PCC.gameObject.transform.position.y);
             PCC.currentInitiative -= 1;

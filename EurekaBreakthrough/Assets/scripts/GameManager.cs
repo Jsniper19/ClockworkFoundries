@@ -39,50 +39,63 @@ public class GameManager : MonoBehaviour
     {
         if (!turnIsPlayers)
         {
-            if (EnemyInitiative > 0)
+            if (Enemy1 != null || Enemy2 != null || Enemy3 != null)
             {
-                if (EnemyCount == 1)
+                if (EnemyInitiative > 0)
                 {
-                    if (Enemy1 != null)
+                    if (EnemyCount == 1)
                     {
-                        Enemy1.GetComponent<EnemyController>().DecideAction();
-                        EnemyCount = 2;
-                        EnemyInitiative--;
+                        if (Enemy1 != null)
+                        {
+                            Enemy1.GetComponent<EnemyController>().DecideAction();
+                            EnemyCount = 2;
+                            EnemyInitiative--;
+                        }
+                        else
+                        {
+                            EnemyCount++;
+                        }
                     }
-                    else
+                    else if (EnemyCount == 2)
                     {
-                        EnemyCount++;
+                        if (Enemy2 != null)
+                        {
+                            Enemy2.GetComponent<EnemyController>().DecideAction();
+                            EnemyCount = 3;
+                            EnemyInitiative--;
+                        }
+                        else
+                        {
+                            EnemyCount++;
+                        }
+                    }
+                    else if (EnemyCount == 3)
+                    {
+                        if (Enemy3 != null)
+                        {
+                            Enemy3.GetComponent<EnemyController>().DecideAction();
+                            EnemyCount = 1;
+                            EnemyInitiative--;
+                        }
+                        else
+                        {
+                            EnemyCount++;
+                        }
                     }
                 }
-                else if (EnemyCount == 2)
+                else
                 {
-                    if (Enemy2 != null)
+                    turnIsPlayers = true;
+                    PresentPlayer.NewTurn();
+                    if (FuturePlayer != null)
                     {
-                        Enemy2.GetComponent<EnemyController>().DecideAction();
-                        EnemyCount = 3;
-                        EnemyInitiative--;
-                    }
-                    else
-                    {
-                        EnemyCount++;
-                    }
-                }
-                else if (EnemyCount == 3)
-                {
-                    if (Enemy3 != null)
-                    {
-                        Enemy3.GetComponent<EnemyController>().DecideAction();
-                        EnemyCount = 1;
-                        EnemyInitiative--;
-                    }
-                    else
-                    {
-                        EnemyCount++;
+                        FuturePlayer.NewTurn();
                     }
                 }
             }
             else
             {
+                //this should be the victory state
                 turnIsPlayers = true;
                 PresentPlayer.NewTurn();
                 if (FuturePlayer != null)

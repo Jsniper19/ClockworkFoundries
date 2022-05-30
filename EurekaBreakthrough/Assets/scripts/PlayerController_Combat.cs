@@ -23,6 +23,11 @@ public class PlayerController_Combat : MonoBehaviour
     public float dmgToTake;
     public Text textPrefab;
 
+    public CollisionCheck up;
+    public CollisionCheck down;
+    public CollisionCheck left;
+    public CollisionCheck right;
+
     public class Weapon
     {
         // weapon vars, can add the gameobject itself later ?? Maybe add ammo type here to make counting ammo of diff types easier
@@ -58,6 +63,7 @@ public class PlayerController_Combat : MonoBehaviour
     {
         currentHealth = maxHealth;
         currentInitiative = maxInitiative;
+        CA = GameObject.FindGameObjectWithTag("Cursor").GetComponent<ColliderActivation>();
     }
 
     public void Attack()
