@@ -51,11 +51,11 @@ public class EnemyController : MonoBehaviour
 
     // storing weapon stats 
     public List<Weapon> weapons = new List<Weapon>(){
-        new Weapon("WarClub", false, 80f, 20f, "bashing", 15f),
-        new Weapon("Sword", false, 85f, 16f, "slashing", 20f),
-        new Weapon("SteamCannon", true, 80f, 25f, "piercing", 5f),
-        new Weapon("BoomStick", true, 70f, 18f, "piercing", 15f),
-        new Weapon("Rifle", true, 75f, 20f, "piercing", 15f)
+        new Weapon("WarClub", false, 80f, 10f, "bashing", 15f),
+        new Weapon("Sword", false, 85f, 9f, "slashing", 20f),
+        new Weapon("SteamCannon", true, 80f, 18f, "piercing", 5f),
+        new Weapon("BoomStick", true, 70f, 12f, "piercing", 15f),
+        new Weapon("Rifle", true, 75f, 11f, "piercing", 15f)
     };
     #endregion
 
@@ -81,7 +81,7 @@ public class EnemyController : MonoBehaviour
     }
     private void Update()
     {
-        
+
         if (PlayerCharacter == null)
         {
             PlayerCharacter = GameObject.FindGameObjectWithTag("Player");
@@ -102,9 +102,6 @@ public class EnemyController : MonoBehaviour
             if (Ammo > 0)
             {
                 Move(false);
-            }
-            else
-            {
                 Attack(weapons[melee]);
             }
         }
@@ -132,7 +129,7 @@ public class EnemyController : MonoBehaviour
         {
             float dmgToTake = rnd.Next(0, 100) <= weapon.critChance ? weapon.dmg * 2 : weapon.dmg; // need to change this to include defense stats too
             PlayerCharacter.GetComponent<PlayerController_Combat>().currentHealth -= dmgToTake;   
-            print("Damage: " + dmgToTake + " GameObject: " + this.gameObject.name);
+            print("Damage: " + dmgToTake + " GameObject: " + this.gameObject.name + " Weapon: " + weapon.name);
 
             if (weapon.ranged == true) Ammo -= 1;
         }

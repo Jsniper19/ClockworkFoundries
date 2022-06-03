@@ -4661,7 +4661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10ac1697e0e04764190b1b4f86179f80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 100
   currentHealth: 0
   maxInitiative: 10
   currentInitiative: 0
@@ -7131,7 +7131,7 @@ MonoBehaviour:
   currentHealth: 0
   PlayerCharacter: {fileID: 194540857}
   GM: {fileID: 358361917}
-  GameManager: {fileID: 0}
+  GameManager: {fileID: 358361918}
   CloseRange: {fileID: 817937806}
   MediumRange: {fileID: 887583275}
   Ammo: 5
@@ -8079,7 +8079,7 @@ MonoBehaviour:
   currentHealth: 0
   PlayerCharacter: {fileID: 194540857}
   GM: {fileID: 358361917}
-  GameManager: {fileID: 0}
+  GameManager: {fileID: 358361918}
   CloseRange: {fileID: 668978952}
   MediumRange: {fileID: 828859004}
   Ammo: 5
@@ -8685,7 +8685,7 @@ MonoBehaviour:
   currentHealth: 0
   PlayerCharacter: {fileID: 194540857}
   GM: {fileID: 358361917}
-  GameManager: {fileID: 0}
+  GameManager: {fileID: 358361918}
   CloseRange: {fileID: 668978952}
   MediumRange: {fileID: 828859004}
   Ammo: 5
