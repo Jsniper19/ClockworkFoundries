@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -20,12 +21,12 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    void Quit()
+    public void Quit()
     {
         Application.Quit();
     }
 
-    bool togglePause()
+    bool TogglePause()
     {
         if (Time.timeScale == 0f)
         {
@@ -37,5 +38,9 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 0f;
             return true;
         }
+    }
+
+    public void PauseButton(){
+        paused = TogglePause();
     }
 }
