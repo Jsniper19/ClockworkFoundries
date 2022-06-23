@@ -63,6 +63,12 @@ public class TimeTravel : MonoBehaviour
 
             UIM.Future = UIM.Present;
             UIM.Present = PlayerPresent.GetComponent<PlayerController_Combat>();
+
+             foreach (var deadEnemy  in GameObject.FindGameObjectsWithTag("DeadEnemy"))
+             {
+                 Destroy(deadEnemy);
+             }
+
         }
     }
 }
