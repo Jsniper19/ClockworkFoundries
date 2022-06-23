@@ -19,6 +19,8 @@ public class PlayerController_Overworld : MonoBehaviour
     public GameObject Down;
     public GameObject Left;
     public GameObject Right;
+    public bool MoveEnabled;
+    public GameObject Arrows;
 
 
 
@@ -69,6 +71,26 @@ public class PlayerController_Overworld : MonoBehaviour
             {
                 Right.SetActive(true);
             }
+        }
+
+        //if (transform.position.x != Mathf.Round(transform.position.x / 3.2f) * 3.2f || transform.position.y != Mathf.Round(transform.position.y / 3.2f) * 3.2f)
+        if (transform.position.x == TargetPoint.x && transform.position.y == TargetPoint.y)
+        {
+            MoveEnabled = true;
+        }
+        else
+        {
+            MoveEnabled = false;
+            
+        }
+
+        if (MoveEnabled)
+        {
+            Arrows.SetActive(true);
+        }
+        else
+        {
+            Arrows.SetActive(false);
         }
     }
 

@@ -34,20 +34,13 @@ public class MovementArrows : MonoBehaviour
         }
         else
         {
-            if (PCC.gameObject.transform.position.x != Mathf.Round(PCC.gameObject.transform.position.x / 3.2f) * 3.2f || PCC.gameObject.transform.position.y != Mathf.Round(PCC.gameObject.transform.position.y / 3.2f) * 3.2f)
+            if (PCC.transform.position.x == TargetPoint.x && PCC.transform.position.y == TargetPoint.y)
             {
-                if (PCC.gameObject.transform.position.x != 9.6)
-                {
-                    MoveEnabled = true;
-                }
-                else
-                {
-                    MoveEnabled = false;
-                }
+                MoveEnabled = true;
             }
             else
             {
-                MoveEnabled = true;
+                MoveEnabled = false;
             }
         }
 
