@@ -18,7 +18,7 @@ public class Tutorial : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !PauseMenu.paused)
+        if (Input.GetKeyDown(KeyCode.C) && !PauseMenu.paused)
         {
             tutNo++;
         }

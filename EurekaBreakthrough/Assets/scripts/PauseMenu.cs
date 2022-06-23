@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -17,6 +18,11 @@ public class PauseMenu : MonoBehaviour
         else if (!paused)
         {
             pauseUI.SetActive(false);
+        }
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            paused = TogglePause();
         }
     }
 
@@ -41,5 +47,10 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseButton(){
         paused = TogglePause();
+    }
+
+    public void ReturnToOverWorld()
+    {
+        SceneManager.LoadScene("OverWorld");
     }
 }
