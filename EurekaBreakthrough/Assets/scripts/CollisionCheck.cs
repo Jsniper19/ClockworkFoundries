@@ -8,7 +8,7 @@ public class CollisionCheck : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Barrier"))
+        if (collision.gameObject.CompareTag("Barrier"))
         {
             active = false;
         }
@@ -16,7 +16,7 @@ public class CollisionCheck : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Barrier"))
+        if (collision.gameObject.CompareTag("Barrier"))
         {
             active = true;
         }
