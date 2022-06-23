@@ -11,9 +11,14 @@ public class Tutorial : MonoBehaviour
 
     public GameObject tutorialParent;
 
+    void Awake()
+    {
+        tutorialParent.SetActive(true);
+    }
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !PauseMenu.paused)
         {
             tutNo++;
         }

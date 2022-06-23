@@ -5,9 +5,8 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-    bool paused = false;
+    public static bool paused = false;
     public GameObject pauseUI;
-
 
     void Update()
     {
