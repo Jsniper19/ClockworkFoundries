@@ -9,6 +9,10 @@ public class MovementArrows : MonoBehaviour
     public GridManager GM;
 
     public GameObject Arrows;
+    public GameObject Left;
+    public GameObject Right;
+    public GameObject Up;
+    public GameObject Down;
     public float tileSpeed;
     public Vector2 TargetPoint;
     public PlayerController_Combat Future;
@@ -42,6 +46,46 @@ public class MovementArrows : MonoBehaviour
         {
             Arrows.SetActive(false);
         }
+
+        {
+            if (!PCC.up.active)
+            {
+                Up.SetActive(false);
+            }
+            else
+            {
+                Up.SetActive(true);
+            }
+
+            if (!PCC.down.active)
+            {
+                Down.SetActive(false);
+            }
+            else
+            {
+                Down.SetActive(true);
+            }
+
+            if (!PCC.left.active)
+            {
+                Left.SetActive(false);
+            }
+            else
+            {
+                Left.SetActive(true);
+            }
+
+            if (!PCC.right.active)
+            {
+                Right.SetActive(false);
+            }
+            else
+            {
+                Right.SetActive(true);
+            }
+        }
+
+
     }
 
     public void MoveUp()

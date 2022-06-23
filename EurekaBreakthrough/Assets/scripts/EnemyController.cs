@@ -93,6 +93,10 @@ public class EnemyController : MonoBehaviour
             Instantiate(deadEnemy, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
             Destroy(this.gameObject);
         }
+        float tempX = Mathf.Round(transform.position.x / 3.2f) * 3.2f;
+        float tempY = Mathf.Round(transform.position.y / 3.2f) * 3.2f;
+
+        transform.position = new Vector2(tempX, tempY);
     }
 
     public void DecideAction()
@@ -101,7 +105,7 @@ public class EnemyController : MonoBehaviour
         {
             if (Ammo > 0)
             {
-                Move(false);
+                //Move(false);
                 Attack(weapons[melee]);
             }
         }
@@ -188,5 +192,6 @@ public class EnemyController : MonoBehaviour
                 transform.position = new Vector2(transform.position.x + GM.TileX, transform.position.y);
             }
         }
+        
     }
 }
