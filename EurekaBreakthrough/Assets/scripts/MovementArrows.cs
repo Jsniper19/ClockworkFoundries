@@ -18,7 +18,6 @@ public class MovementArrows : MonoBehaviour
     public PlayerController_Combat Future;
     public PlayerController_Combat Present;
     public PlayerController_Combat PCC;
-
     private void Start()
     {
         TargetPoint = PCC.gameObject.transform.position;
@@ -37,7 +36,14 @@ public class MovementArrows : MonoBehaviour
         {
             if (PCC.gameObject.transform.position.x != Mathf.Round(PCC.gameObject.transform.position.x / 3.2f) * 3.2f || PCC.gameObject.transform.position.y != Mathf.Round(PCC.gameObject.transform.position.y / 3.2f) * 3.2f)
             {
-                MoveEnabled = false;
+                if (PCC.gameObject.transform.position.x != 9.6)
+                {
+                    MoveEnabled = true;
+                }
+                else
+                {
+                    MoveEnabled = false;
+                }
             }
             else
             {
