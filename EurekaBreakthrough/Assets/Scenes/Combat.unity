@@ -8318,6 +8318,10 @@ MonoBehaviour:
   MoveEnabled: 1
   GM: {fileID: 358361917}
   Arrows: {fileID: 1671008125}
+  Left: {fileID: 1663080369}
+  Right: {fileID: 1498403010}
+  Up: {fileID: 1663903125}
+  Down: {fileID: 317479186}
   tileSpeed: 5
   TargetPoint: {x: 0, y: 0}
   Future: {fileID: 194540861}
