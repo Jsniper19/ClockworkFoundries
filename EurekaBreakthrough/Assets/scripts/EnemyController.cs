@@ -103,11 +103,7 @@ public class EnemyController : MonoBehaviour
     {
         if (CloseRange.InRange)
         {
-            if (Ammo > 0)
-            {
-                //Move(false);
-                Attack(weapons[melee]);
-            }
+            Attack(weapons[melee]);
         }
         else
         {
@@ -121,6 +117,10 @@ public class EnemyController : MonoBehaviour
                 {
                     Move(true);
                 }
+            }
+            else
+            {
+                Move(true);
             }
         }
     }

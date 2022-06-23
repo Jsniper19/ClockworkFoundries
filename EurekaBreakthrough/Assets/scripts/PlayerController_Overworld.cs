@@ -15,6 +15,13 @@ public class PlayerController_Overworld : MonoBehaviour
     public CollisionCheck left;
     public CollisionCheck right;
 
+    public GameObject Up;
+    public GameObject Down;
+    public GameObject Left;
+    public GameObject Right;
+
+
+
     public Vector2 TargetPoint;
     public bool PLAY = true;
 
@@ -26,6 +33,43 @@ public class PlayerController_Overworld : MonoBehaviour
     private void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, TargetPoint, Time.deltaTime * tileSpeed);
+        {
+            if (!up.active)
+            {
+                Up.SetActive(false);
+            }
+            else
+            {
+                Up.SetActive(true);
+            }
+
+            if (!down.active)
+            {
+                Down.SetActive(false);
+            }
+            else
+            {
+                Down.SetActive(true);
+            }
+
+            if (!left.active)
+            {
+                Left.SetActive(false);
+            }
+            else
+            {
+                Left.SetActive(true);
+            }
+
+            if (!right.active)
+            {
+                Right.SetActive(false);
+            }
+            else
+            {
+                Right.SetActive(true);
+            }
+        }
     }
 
     public void MoveUp()
@@ -59,7 +103,7 @@ public class PlayerController_Overworld : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //if (collision.gameObject.CompareTag("Barrier"))
+        if (collision.gameObject.CompareTag("Barrier"))
         {
             Debug.Log("hi");
             TargetPoint = transform.position;
