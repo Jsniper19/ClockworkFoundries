@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class ShopManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Update()
     {
-        
+        //check trigger box for tag (armour, weapon, misc)
+        //OnTriggerEnter then OnTrigggerExit when leaving
+        //make shop open button appear - "Talk to Vendor" (one for each)
+        //set canvas piece to active
+
+
+
+        //set up buttons to shop
+
+
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+    //public GameObject armourMenu;
+    //armourMenu.SetActive(true);
 }
